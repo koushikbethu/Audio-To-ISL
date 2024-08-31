@@ -41,48 +41,6 @@ This project focuses on developing a tool that translates spoken English into In
    git clone https://github.com/yourusername/Hackthon-5.0.git
 
 2. Install required packages:
+   
    pip install numpy matplotlib pillow speechrecognition
-
-
-
-
-## Detailed Workflow Diagram:
-
-+---------------------+
-|   Audio Input       |
-| (Microphone)        |
-+---------------------+
-          |
-          v
-+------------------------------+
-| Listen and Transcribe Speech |
-| Using Google Web Speech API  |
-+------------------------------+
-          |
-          v
-+--------------------------+
-|  Get Transcribed Text     |
-+--------------------------+
-          |
-          v
-+-----------------------------+
-| Preprocess Transcribed Text  |
-| (Lowercase, Remove Punctuation) |
-+-----------------------------+
-          |
-          v
-+----------------------------+
-| Check for Matching Phrases |
-| in ISL GIF List            |
-+----------------------------+
-          |
-          |  Match Found       
-          |----------------------------->
-          |                              |
-          v                              v
-+-----------------------------+      +-------------------------------+
-| Display ISL GIF Animation   |      | Display Letter-by-Letter      |
-| Using Tkinter               |<-----| Images Using Matplotlib       |
-| (If Match Found)            |      | (If No Match Found)           |
-+-----------------------------+      +-------------------------------+
 
