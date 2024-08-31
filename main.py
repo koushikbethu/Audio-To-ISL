@@ -10,11 +10,11 @@ def listen_and_transcribe(language='en-US', timeout=10, energy_threshold=4000):
     r = sr.Recognizer()
 
     with sr.Microphone() as source:
-        print("Adjusting for ambient noise, please wait...")
+        print("Please Wait!🙂 Preparing for the Audio Listening...")
         r.adjust_for_ambient_noise(source, duration=2)  
         r.energy_threshold = energy_threshold
         
-        print("Listening...")
+        print("You Can Speak Now 🙂...")
         
         try:
             # Listen to the audio
@@ -26,11 +26,11 @@ def listen_and_transcribe(language='en-US', timeout=10, energy_threshold=4000):
         
         except sr.RequestError as e:
             # API was unreachable or unresponsive
-            return f"Could not request results from Google Speech Recognition service; {e}"
+            return f"Could not request results from model; {e}"
         
         except sr.UnknownValueError:
             # Speech was unintelligible
-            return "Google Speech Recognition could not understand audio"
+            return "model could not understand audio"
         
         except sr.WaitTimeoutError:
             # No speech detected in the time limit
