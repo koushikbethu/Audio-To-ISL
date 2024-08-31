@@ -1,4 +1,4 @@
-Readme overview in Website:https://sai-prashanth123.github.io/Hackathon-5.0/
+Readme overview in Website: https://sai-prashanth123.github.io/Hackathon-5.0/
 
 # Indian Sign Language Translation Project
 
