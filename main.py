@@ -6,14 +6,14 @@ import tkinter as tk
 import string
 import speech_recognition as sr
 
-def listen_and_transcribe(language='en-US', timeout=10, energy_threshold=4000):
+def listen_and_transcribe(language='en-US', timeout=3, energy_threshold=300, pause_threshold=0.5):
     r = sr.Recognizer()
 
     with sr.Microphone() as source:
         print("Please Wait!🙂 Preparing for the Audio Listening...")
         r.adjust_for_ambient_noise(source, duration=2)  
         r.energy_threshold = energy_threshold
-        
+        r.pause_threshold = pause_threshold 
         print("You Can Speak Now 🙂...")
         
         try:
@@ -108,15 +108,17 @@ def text_to_sign_language(input_text):
         lbl.load(f'ISL_Gifs/{input_text}.gif')
         root.mainloop()
     else:
-        # Display individual letters
+        # Display individual letters quickly like a video
+        fig, ax = plt.subplots()
         for char in input_text:
             if char in arr:
                 ImageAddress = f'letters/{char}.jpg'
                 ImageItself = Image.open(ImageAddress)
                 ImageNumpyFormat = np.asarray(ImageItself)
-                plt.imshow(ImageNumpyFormat)
+                ax.imshow(ImageNumpyFormat)
                 plt.draw()
-                plt.pause(0.8)
+                plt.pause(0.05)  # Reduced pause duration for faster display
+                ax.clear()
         plt.close()
 
 # Use the speech recognition input
